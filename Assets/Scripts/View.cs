@@ -52,6 +52,10 @@ public class View : MonoBehaviour
         _anim.SetTrigger("_jump");
     }
 
+    public void HeadShoot()
+    {
+        _anim.SetTrigger("_headAttack");
+    }
 
     public void SetNewSpeed(float xAxis)
     {

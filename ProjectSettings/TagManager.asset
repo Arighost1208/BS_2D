@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - IA
+  - HeadIA
+  - GoalsRight
+  - GoalsLeft
   layers:
   - Default
   - TransparentFX
@@ -16,9 +20,9 @@ TagManager:
   - Grass
   - Ball
   - IA
-  - 
-  - 
-  - 
+  - Ground
+  - GoalsRight
+  - GoalsLeft
   - 
   - 
   - 
@@ -40,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Canvas
+    uniqueID: 690350789
     locked: 0

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private IA ia;
+    private GameManager _gm;
     void Start()
     {
-
+        ia = GameObject.FindObjectOfType<IA>();
+        _gm = GameObject.FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -52,6 +54,31 @@ public class Ball : MonoBehaviour
             _ia._canShootAI = true;
             return;
         }
+
+       
+        if (collision.gameObject.tag == "HeadIA")
+        {
+            ia._canHead = true;
+            return;
+        }
+        //Gol del player
+        if (collision.gameObject.layer == LayerMask.NameToLayer("GoalsRight"))
+        {
+            Vector3 vec = GetComponent<Rigidbody>().velocity;
+            GetComponent<Rigidbody>().velocity = new Vector3(vec.x / 2, vec.y / 2, 0);
+            _gm.goalPlayer();
+            Debug.Log("GOOOOOL a la IA");
+            return;
+        }
+        //Gol del CPU
+        if (collision.gameObject.layer == LayerMask.NameToLayer("GoalsLeft"))
+        {
+            Vector3 vec = GetComponent<Rigidbody>().velocity;
+            GetComponent<Rigidbody>().velocity = new Vector3(vec.x/2, vec.y/2,0);
+            _gm.goalIA();
+            Debug.Log("GOOOOOL al Player");
+            return;
+        }
     }
 
     private void OnTriggerExit(Collider collision)
@@ -71,6 +98,13 @@ public class Ball : MonoBehaviour
             _ia._canShootAI = false;
             return;
         }
+
+        if (collision.gameObject.tag == "HeadIA")
+        {
+            ia._canHead = false;
+            return;
+        }
+        
     }
 
     

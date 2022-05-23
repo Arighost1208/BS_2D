@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class IA : MonoBehaviour
 {
-    public float rangerDenfece,_speed;
-    public Transform denfece;
-    Ball _ball;
-    Rigidbody _rbIA;
-    public bool _canShootAI,_canHead;
-    Model _player;
-    public Animator _anim;
+    public float _rangerDefense, _speed ;
+    public int _jumpForce;
+    public Transform _defense,_checkGrounded;
+    public bool _canShootAI, _canHead, _grounded;
+    public LayerMask _groundLayer;
+
+    private Ball _ball;
+    private Rigidbody _rbIA;  
+    private Model _player;
+    private  Animator _anim;
+    
 
     void Start()
     {
@@ -21,25 +25,31 @@ public class IA : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+
         Move();
+
+        _grounded = Physics.CheckSphere(_checkGrounded.position, 0.25f, _groundLayer);
         if (_canShootAI)
         {
             Shoot();
         }
 
-        ////if (_canHead)
-        ////{
+        if (_canHead && _grounded)
+        {
+            Jump();
+        }
 
-        //}
     }
 
     public void Move()
     {
         float _currentSpeed;
-        if (Mathf.Abs(_ball.transform.position.x - transform.position.x)< rangerDenfece)
+        //Si la distancia entre la pelota y la IA es menor al rango de Defensa
+        if (Mathf.Abs(_ball.transform.position.x - transform.position.x)< _rangerDefense)
         {
+            //evaluo si la pelota esta por delante de la IA
             if (_ball.transform.position.x > transform.position.x)
             {
                 if (Mathf.Abs(_player.transform.position.x - transform.position.x) >= 2.5f)
@@ -56,21 +66,25 @@ public class IA : MonoBehaviour
                 }
             }
 
+           
+            //Si la pelota no esta por delante de la IA
             else
             {
                 _currentSpeed = -Time.deltaTime * _speed;
                 _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
             }
         }
-
+        //Si la distancia entre la pelota y la IA es mayor al rango de Defensa
         else
         {
-            if (transform.position.x > denfece.position.x)
+            //Chequeo si la IA esta por delante de la zona Defensiva
+            if (transform.position.x > _defense.position.x)
             {
                 _currentSpeed = -Time.deltaTime * _speed;
                 _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
             }
-            
+
+            //Si la IA esta por detras de la zona Defensiva
             else
             {
                 _currentSpeed = 0;
@@ -84,32 +98,38 @@ public class IA : MonoBehaviour
     public void Shoot()
     {
         //_ball.GetComponent<Rigidbody>().velocity = new Vector3(0f, _ball.GetComponent<Rigidbody>().velocity.y,0);
+      
         if (_ball.transform.position.x > transform.position.x)
         {
-            _ball.GetComponent<Rigidbody>().AddForce(new Vector3(20 , 30, 0));
+            _rbIA.velocity = Vector3.zero;
+            _ball.GetComponent<Rigidbody>().AddForce(new Vector3(20 , 20, 0));
             
         }
-        else
-            _ball.GetComponent<Rigidbody>().AddForce(new Vector3(-20 , 30, 0));
+        else 
+        {
+            _rbIA.velocity = Vector3.zero;
+            _ball.GetComponent<Rigidbody>().AddForce(new Vector3(-20, 20, 0));
+        }
 
-        //_canShootAI = false;
-
-        //else
-        //    _ball.GetComponent<Rigidbody>().AddForce(new Vector3(20, 30, 0));
-
+        _anim.SetTrigger("_shoot");
     }
 
 
     public void Jump()
     {
-        _rbIA.velocity = new Vector3(-Time.deltaTime * _speed, 150f, _rbIA.velocity.z);
+        _anim.SetTrigger("_jump");
+        _rbIA.velocity = new Vector3(_rbIA.velocity.x,0, _rbIA.velocity.z);
+        _rbIA.AddForce(new Vector3(_rbIA.velocity.x, _jumpForce, _rbIA.velocity.z), ForceMode.Impulse);
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.GetComponent<Ball>())
-    //    {
-    //        _canShootAI = true;
-    //    }
-    //}
+    public void doHeadShoot()
+    {
+        _anim.SetTrigger("_headAttack");
+    }
+
+    private void OnDrawGizmos()
+    {
+       
+        Gizmos.DrawWireSphere(_checkGrounded.position, 0.25f);
+    }
 }

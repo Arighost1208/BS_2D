@@ -32,17 +32,28 @@ public class Controller : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        else if (Input.GetKeyDown(KeyCode.Return))
         {
-            _model.doFeetShoot();
             _view.FeetShoot();
+          
+            _model.doFeetShoot(true);
+           
 
         }
-            float interpolationRatio = (float)elapsedFrames / interpolationFramesCount;
+
+        else if (Input.GetKeyDown(KeyCode.L))
+        {
+            _view.FeetShoot();
+            _model.doFeetShoot(false);
+            
+        }
+
+
+        float interpolationRatio = (float)elapsedFrames / interpolationFramesCount;
         //_model.transform.position += new Vector3(Input.GetAxis("Horizontal") * 5 * Time.deltaTime,0,0);
         //float _pos = Input.GetAxisRaw("Horizontal");
             
-        Vector3 _pos = Vector3.Lerp(_model.transform.position, new Vector3(_model.transform.position.x + Input.GetAxisRaw("Horizontal") * 5 * Time.deltaTime, _model.transform.position.y, _model.transform.position.z), interpolationRatio);
+        Vector3 _pos = Vector3.Lerp(_model.transform.position, new Vector3(_model.transform.position.x + Input.GetAxisRaw("Horizontal") * _model._speed * Time.deltaTime, _model.transform.position.y, _model.transform.position.z), interpolationRatio);
 
         _model.doWalk(_pos);
         _view.SetNewSpeed(Input.GetAxisRaw("Horizontal"));
@@ -62,5 +73,10 @@ public class Controller : MonoBehaviour
 
         elapsedFrames = (elapsedFrames + 1) % (interpolationFramesCount + 1);  // reset elapsedFrames to zero after it reached (interpolationFramesCount + 1)
 
+    }
+
+    public void HeadShoot()
+    {
+        _view.HeadShoot();
     }
 }
