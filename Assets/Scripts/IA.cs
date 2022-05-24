@@ -122,10 +122,7 @@ public class IA : MonoBehaviour
 
     public void Shoot()
     {
-        //_ball.GetComponent<Rigidbody>().velocity = new Vector3(0f, _ball.GetComponent<Rigidbody>().velocity.y,0);
-
         int _option = Random.Range(1, 3);
-        
 
         if (_ball.transform.position.x > transform.position.x)
         {

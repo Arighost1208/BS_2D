@@ -12,31 +12,6 @@ public class Ball : MonoBehaviour
         _gm = GameObject.FindObjectOfType<GameManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    Model _player = collision.gameObject.GetComponentInChildren<Model>();
-
-    //    if (_player != null)
-    //    {
-    //        _player._canShoot = true;
-    //    }
-    //}
-
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    Model _player = collision.gameObject.GetComponentInChildren<Model>();
-
-    //    if (_player != null)
-    //    {
-    //        _player._canShoot = false;
-    //    }
-    //}
     private void OnTriggerEnter(Collider collision)
     {
         Model _player = collision.gameObject.GetComponentInChildren<Model>();

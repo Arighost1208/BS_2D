@@ -16,12 +16,7 @@ public class Controller : MonoBehaviour
     public Controller(Model _m, View _v)
     {
         _model = _m;
-
         _view = _v;
-        /*Agrego al Action de mi model la/s funcion/es que quiero que se ejecuten con el Action*/
-        //_model.doAnimation += _v.DeathMaterial;
-
-
     }
     public void OnUpdate()
     {
@@ -29,23 +24,18 @@ public class Controller : MonoBehaviour
         {
             if(_model.doJump())
                 _view.Jump();
-
         }
 
         else if (Input.GetKeyDown(KeyCode.Return))
         {
-            _view.FeetShoot();
-          
-            _model.doFeetShoot(true);
-           
-
+            _view.FeetShoot();        
+            _model.doFeetShoot(true);        
         }
 
         else if (Input.GetKeyDown(KeyCode.L))
         {
             _view.FeetShoot();
-            _model.doFeetShoot(false);
-            
+            _model.doFeetShoot(false);           
         }
 
 
@@ -56,21 +46,7 @@ public class Controller : MonoBehaviour
         Vector3 _pos = Vector3.Lerp(_model.transform.position, new Vector3(_model.transform.position.x + Input.GetAxisRaw("Horizontal") * _model._speed * Time.deltaTime, _model.transform.position.y, _model.transform.position.z), interpolationRatio);
 
         _model.doWalk(_pos);
-        _view.SetNewSpeed(Input.GetAxisRaw("Horizontal"));
-        // _view.Walk(Input.GetAxis("Horizontal"));
-        //if (_pos != 0f)
-        //{
-        //    //_view.Idle(false);
-
-        // }
-
-        //else
-        //{
-        //    _view.Idle(true);
-        //}
-
-        //_view.Walk(_model.transform.position.x);
-
+        _view.SetNewSpeed(Input.GetAxisRaw("Horizontal"));      
         elapsedFrames = (elapsedFrames + 1) % (interpolationFramesCount + 1);  // reset elapsedFrames to zero after it reached (interpolationFramesCount + 1)
 
     }

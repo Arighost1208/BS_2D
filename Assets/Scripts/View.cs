@@ -18,23 +18,7 @@ public class View : MonoBehaviour
 
     void Awake()
     {
-        _anim = GetComponentInChildren<Animator>();
-       // _myMat = GetComponent<Renderer>().material;
-    }
-
-    public void UpdateHudLife(float value)
-    {
-        lifeBar.fillAmount = value;
-    }
-
-    //public void HurtAnimation(float v)
-    //{
-    //    //_anim.SetTrigger("Hurt");
-    //}
-
-    public void DeathMaterial()
-    {
-        _myMat.color = Color.red;
+        _anim = GetComponentInChildren<Animator>();  
     }
 
     public void Walk(float speed)
@@ -83,7 +67,7 @@ public class View : MonoBehaviour
 
     public void FeetShoot()
     {
-        _anim.SetTrigger("_shoot");
+       _anim.SetTrigger("_shoot");
     }
 
 }
