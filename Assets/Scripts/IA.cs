@@ -33,6 +33,7 @@ public class IA : MonoBehaviour
         if (_canShootAI)
         {
             Shoot();
+            _canShootAI = false;
         }
 
         if (_canHead && _grounded)

@@ -59,6 +59,7 @@ public class Model : MonoBehaviour
             else
                 _ball.GetComponent<Rigidbody>().AddForce(new Vector3(60, _ball.GetComponent<Rigidbody>().velocity.y, 0));
         }
+        _canShoot = false;
     }
 
 
