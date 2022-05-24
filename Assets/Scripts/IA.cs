@@ -14,7 +14,6 @@ public class IA : MonoBehaviour
     private Rigidbody _rbIA;  
     private Model _player;
     private  Animator _anim;
-    
 
     void Start()
     {
@@ -45,52 +44,78 @@ public class IA : MonoBehaviour
 
     public void Move()
     {
-        float _currentSpeed;
-        //Si la distancia entre la pelota y la IA es menor al rango de Defensa
-        if (Mathf.Abs(_ball.transform.position.x - transform.position.x)< _rangerDefense)
+        float _currentSpeed = 0f;
+        if (Mathf.Abs(_ball.transform.position.x - transform.position.x) < _rangerDefense)
         {
-            //evaluo si la pelota esta por delante de la IA
             if (_ball.transform.position.x > transform.position.x)
             {
-                if (Mathf.Abs(_player.transform.position.x - transform.position.x) >= 2.5f)
-                {
-                    _currentSpeed = Time.deltaTime * _speed;
-                    _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-                }
-                    
-                else
-                {
-                    _currentSpeed = -Time.deltaTime * _speed;
-                    _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-
-                }
+                _currentSpeed = Time.deltaTime * _speed;
+                _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
             }
+
+            else
+            {
+                _currentSpeed = -Time.deltaTime * _speed;
+                _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+            }
+        }
+        //    //Si la distancia entre la pelota y la IA es menor al rango de Defensa
+        //    if (Mathf.Abs(_ball.transform.position.x - transform.position.x)< _rangerDefense)
+        //     {
+        //    //evaluo si la pelota esta por detras de la IA
+        //        if (_ball.transform.position.x > transform.position.x)
+        //        {
+        //            if (Mathf.Abs(_player.transform.position.x - transform.position.x) <= 2.5f)
+        //            {
+        //            _currentSpeed = Time.deltaTime * _speed;
+        //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+        //            }
+
+        //            else
+        //            {
+        //            _currentSpeed = -Time.deltaTime * _speed;
+        //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+
+        //            }
+        //        }
 
            
-            //Si la pelota no esta por delante de la IA
-            else
-            {
-                _currentSpeed = -Time.deltaTime * _speed;
-                _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-            }
-        }
-        //Si la distancia entre la pelota y la IA es mayor al rango de Defensa
-        else
-        {
-            //Chequeo si la IA esta por delante de la zona Defensiva
-            if (transform.position.x > _defense.position.x)
-            {
-                _currentSpeed = -Time.deltaTime * _speed;
-                _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-            }
+        //    //Si la pelota  esta por delante de la IA
+        //        else
+        //        {
+        //            if (Mathf.Abs(_player.transform.position.x - transform.position.x) <= 2.5f)
+        //            {
+        //            _currentSpeed = Time.deltaTime * _speed;
+        //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+        //            }
 
-            //Si la IA esta por detras de la zona Defensiva
-            else
-            {
-                _currentSpeed = 0;
-                _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-            }
-        }
+        //            else
+        //            {
+        //            _currentSpeed = -Time.deltaTime * _speed;
+        //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+
+        //            }
+        //        _currentSpeed = -Time.deltaTime * _speed;
+        //        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+        //        }
+        //    }
+        ////Si la distancia entre la pelota y la IA es mayor al rango de Defensa
+        //else
+        //{
+        //    //Chequeo si la IA esta por delante de la zona Defensiva
+        //    if (transform.position.x > _defense.position.x)//cambiar signo
+        //    {
+        //        _currentSpeed = -Time.deltaTime * _speed;
+        //        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+        //    }
+
+        //    //Si la IA esta por detras de la zona Defensiva
+        //    else
+        //    {
+        //        _currentSpeed = 0;
+        //        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+        //    }
+        //}
 
         _anim.SetFloat("_speedX", _currentSpeed);
     }
@@ -98,17 +123,28 @@ public class IA : MonoBehaviour
     public void Shoot()
     {
         //_ball.GetComponent<Rigidbody>().velocity = new Vector3(0f, _ball.GetComponent<Rigidbody>().velocity.y,0);
-      
+
+        int _option = Random.Range(1, 3);
+        
+
         if (_ball.transform.position.x > transform.position.x)
         {
             _rbIA.velocity = Vector3.zero;
-            _ball.GetComponent<Rigidbody>().AddForce(new Vector3(20 , 20, 0));
-            
+            _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            if (_option == 1)
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(35 , 45, 0));
+            else
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(60, _ball.GetComponent<Rigidbody>().velocity.y, 0));
+
         }
         else 
         {
             _rbIA.velocity = Vector3.zero;
-            _ball.GetComponent<Rigidbody>().AddForce(new Vector3(-20, 20, 0));
+            _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            if (_option == 1)
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(-35, 45, 0));
+            else
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(-60, _ball.GetComponent<Rigidbody>().velocity.y, 0));
         }
 
         _anim.SetTrigger("_shoot");

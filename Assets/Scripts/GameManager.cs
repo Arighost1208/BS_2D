@@ -83,8 +83,9 @@ public class GameManager : MonoBehaviour
         _player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         _player.transform.position = _posDefaultPlayer.position;
         _ia.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        _ia.transform.position = _posDefaultIA.position;
+        _ia.transform.position = _posDefaultIA.position; 
         _ball.transform.position = _posDefaultBall.position;
+        _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
         goalsColliders(true);
 
     }
