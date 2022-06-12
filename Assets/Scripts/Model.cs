@@ -54,10 +54,15 @@ public class Model : MonoBehaviour
         if (_canShoot)
         {
             _rb.velocity = Vector3.zero;
+            _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
             if (obliqueShoot)
-                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(30, 35, 0));
+                //_ball.GetComponent<Rigidbody>().AddForce(new Vector3(40, 35, 0),ForceMode.Impulse);
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(1f ,0.9f, 0), ForceMode.Impulse);
             else
-                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(60, _ball.GetComponent<Rigidbody>().velocity.y, 0));
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(75f, _ball.GetComponent<Rigidbody>().velocity.y, 0));
+
+               
         }
         _canShoot = false;
     }

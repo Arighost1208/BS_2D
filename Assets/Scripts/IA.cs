@@ -130,9 +130,9 @@ public class IA : MonoBehaviour
             _rbIA.velocity = Vector3.zero;
             _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
             if (_option == 1)
-                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(35 , 45, 0));
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(1f, 0.9f, 0), ForceMode.Impulse);
             else
-                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(60, _ball.GetComponent<Rigidbody>().velocity.y, 0));
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(75f, _ball.GetComponent<Rigidbody>().velocity.y, 0));
 
         }
         else 
@@ -140,9 +140,10 @@ public class IA : MonoBehaviour
             _rbIA.velocity = Vector3.zero;
             _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
             if (_option == 1)
-                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(-35, 45, 0));
+                //_ball.GetComponent<Rigidbody>().AddForce(new Vector3(-35, 45, 0));
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(1f, 0.9f, 0), ForceMode.Impulse);
             else
-                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(-60, _ball.GetComponent<Rigidbody>().velocity.y, 0));
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(-75f, _ball.GetComponent<Rigidbody>().velocity.y, 0));
         }
 
         _anim.SetTrigger("_shoot");

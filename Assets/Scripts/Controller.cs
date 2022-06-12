@@ -20,19 +20,19 @@ public class Controller : MonoBehaviour
     }
     public void OnUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             if(_model.doJump())
                 _view.Jump();
         }
 
-        else if (Input.GetKeyDown(KeyCode.Return))
+        else if (Input.GetKeyDown(KeyCode.P))
         {
             _view.FeetShoot();        
             _model.doFeetShoot(true);        
         }
 
-        else if (Input.GetKeyDown(KeyCode.L))
+        else if (Input.GetKeyDown(KeyCode.K))
         {
             _view.FeetShoot();
             _model.doFeetShoot(false);           

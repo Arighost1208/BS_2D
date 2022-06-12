@@ -6,12 +6,22 @@ public class Ball : MonoBehaviour
 {
     private IA ia;
     private GameManager _gm;
+    private Rigidbody _rb;
+    private float _speedX = -12;
+    public Transform _posPlayerDefault;
+
     void Start()
     {
         ia = GameObject.FindObjectOfType<IA>();
         _gm = GameObject.FindObjectOfType<GameManager>();
+        _rb = GetComponent<Rigidbody>();
+
     }
 
+    private void Update()
+    {
+        Debug.Log("Velocidad horizontal :" + _rb.velocity.x);
+    }
     private void OnTriggerEnter(Collider collision)
     {
         Model _player = collision.gameObject.GetComponentInChildren<Model>();
@@ -80,6 +90,16 @@ public class Ball : MonoBehaviour
             return;
         }
         
+    }
+
+    private float Gravity { get { return Physics.gravity.y; } }
+
+    public void ObliqueMove()
+    {
+        float _totalTime = Mathf.Sqrt(Mathf.Abs(((_posPlayerDefault.position.y - transform.position.y) * (-2f)) / Gravity));
+
+        float VIy = Gravity * (_totalTime);
+        _rb.AddForce(new Vector3(_speedX, VIy, 0), ForceMode.VelocityChange);
     }
 
     

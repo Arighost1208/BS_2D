@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     private GameObject _colliderGoalLeft;
     private GameObject _colliderGoalRight;
     private RigidbodyConstraints _rbc;
+    private bool _isGoalIA;
     void Start()
     {
         _goalCountPlayer.text = "0";
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
         addGoalCountPlayer();  
         _goalTextPlayer.gameObject.SetActive(true);
         goalsColliders(false);
+        _isGoalIA = false;
         Invoke("Respwan", 1.5f);
         _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
         Invoke("textGoalPlayerDesactive", 1.5f);
@@ -51,7 +53,8 @@ public class GameManager : MonoBehaviour
         addGoalCountIA();
         
         _goalTextIA.gameObject.SetActive(true);
-        goalsColliders(false);      
+        goalsColliders(false);
+        _isGoalIA = true;
         Invoke("Respwan", 1.5f);
        _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
         Invoke("textGoalIADesactive", 1.5f);
@@ -88,6 +91,13 @@ public class GameManager : MonoBehaviour
         _ia.transform.position = _posDefaultIA.position; 
         _ball.transform.position = _posDefaultBall.position;
         _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+        if (!_isGoalIA)
+            _ball.GetComponent<Rigidbody>().AddForce(new Vector3(50, -30, 0));
+        else
+            //_ball.GetComponent<Rigidbody>().AddForce(new Vector3(-50, -30, 0));
+            _ball.ObliqueMove();
+
         goalsColliders(true);
 
     }
