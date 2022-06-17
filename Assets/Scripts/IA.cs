@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class IA : MonoBehaviour
 {
@@ -17,8 +16,7 @@ public class IA : MonoBehaviour
     private  Animator _anim;
     private Vector3 _posDefault;
     private bool _mustToReturnToDefaultPos;
-    public UnityEvent eventWhenKickBall;
-
+    private bool walkback;
     void Start()
     {
         _anim = GetComponentInChildren<Animator>();
@@ -26,14 +24,14 @@ public class IA : MonoBehaviour
         _rbIA = GetComponent<Rigidbody>();
         _player = GameObject.FindObjectOfType<Model>();
         _posDefault = transform.position;
-        MustToReturnToDefaultPos = false;
+        MustToReturnToDefaultPos = false;  
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         if (MustToReturnToDefaultPos)
-        {
+        {    
             backToDefaultPosition();
         }
         else
@@ -65,99 +63,103 @@ public class IA : MonoBehaviour
         //float _distance = Vector3.Distance(transform.position, _player.transform.position);
         //if (_distance <= 3f)
         //{
+        //    walkback = true;
         //    StartCoroutine(BackToDefaultPosition());
-        //  //  backToDefaultPosition();
+          
         //}
 
         //else
         //{
-            if (Mathf.Abs(_ball.transform.position.x - transform.position.x) < _rangerDefense)
+            if (!walkback)
             {
-                if (_ball.transform.position.x > transform.position.x)
+                if (Mathf.Abs(_ball.transform.position.x - transform.position.x) < _rangerDefense)
                 {
-                    _currentSpeed = Time.deltaTime * _speed;
-                    _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+                    if (_ball.transform.position.x > transform.position.x)
+                    {
+                        _currentSpeed = Time.deltaTime * _speed;
+                        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+                    }
+
+                    else
+                    {
+                        _currentSpeed = -Time.deltaTime * _speed;
+                        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+                    }
                 }
+                //    //Si la distancia entre la pelota y la IA es menor al rango de Defensa
+                //    if (Mathf.Abs(_ball.transform.position.x - transform.position.x)< _rangerDefense)
+                //     {
+                //    //evaluo si la pelota esta por detras de la IA
+                //        if (_ball.transform.position.x > transform.position.x)
+                //        {
+                //            if (Mathf.Abs(_player.transform.position.x - transform.position.x) <= 2.5f)
+                //            {
+                //            _currentSpeed = Time.deltaTime * _speed;
+                //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+                //            }
 
-                else
-                {
-                    _currentSpeed = -Time.deltaTime * _speed;
-                    _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-                }
-            }
-            //    //Si la distancia entre la pelota y la IA es menor al rango de Defensa
-            //    if (Mathf.Abs(_ball.transform.position.x - transform.position.x)< _rangerDefense)
-            //     {
-            //    //evaluo si la pelota esta por detras de la IA
-            //        if (_ball.transform.position.x > transform.position.x)
-            //        {
-            //            if (Mathf.Abs(_player.transform.position.x - transform.position.x) <= 2.5f)
-            //            {
-            //            _currentSpeed = Time.deltaTime * _speed;
-            //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-            //            }
+                //            else
+                //            {
+                //            _currentSpeed = -Time.deltaTime * _speed;
+                //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
 
-            //            else
-            //            {
-            //            _currentSpeed = -Time.deltaTime * _speed;
-            //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-
-            //            }
-            //        }
+                //            }
+                //        }
 
 
-            //    //Si la pelota  esta por delante de la IA
-            //        else
-            //        {
-            //            if (Mathf.Abs(_player.transform.position.x - transform.position.x) <= 2.5f)
-            //            {
-            //            _currentSpeed = Time.deltaTime * _speed;
-            //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-            //            }
+                //    //Si la pelota  esta por delante de la IA
+                //        else
+                //        {
+                //            if (Mathf.Abs(_player.transform.position.x - transform.position.x) <= 2.5f)
+                //            {
+                //            _currentSpeed = Time.deltaTime * _speed;
+                //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+                //            }
 
-            //            else
-            //            {
-            //            _currentSpeed = -Time.deltaTime * _speed;
-            //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+                //            else
+                //            {
+                //            _currentSpeed = -Time.deltaTime * _speed;
+                //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
 
-            //            }
-            //        _currentSpeed = -Time.deltaTime * _speed;
-            //        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-            //        }
-            //    }
-            ////Si la distancia entre la pelota y la IA es mayor al rango de Defensa
-            //else
-            //{
-            //    //Chequeo si la IA esta por delante de la zona Defensiva
-            //    if (transform.position.x > _defense.position.x)//cambiar signo
-            //    {
-            //        _currentSpeed = -Time.deltaTime * _speed;
-            //        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-            //    }
+                //            }
+                //        _currentSpeed = -Time.deltaTime * _speed;
+                //        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+                //        }
+                //    }
+                ////Si la distancia entre la pelota y la IA es mayor al rango de Defensa
+                //else
+                //{
+                //    //Chequeo si la IA esta por delante de la zona Defensiva
+                //    if (transform.position.x > _defense.position.x)//cambiar signo
+                //    {
+                //        _currentSpeed = -Time.deltaTime * _speed;
+                //        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+                //    }
 
-            //    //Si la IA esta por detras de la zona Defensiva
-            //    else
-            //    {
-            //        _currentSpeed = 0;
-            //        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-            //    }
-            //}
+                //    //Si la IA esta por detras de la zona Defensiva
+                //    else
+                //    {
+                //        _currentSpeed = 0;
+                //        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+                //    }
+                //}
 
-            _anim.SetFloat("_speedX", _currentSpeed);
-       // }
+                _anim.SetFloat("_speedX", _currentSpeed);
+            //}           
+        }
         
     }
 
     public void Shoot()
     {
         int _option = Random.Range(1, 3);
-        eventWhenKickBall?.Invoke();
+
         if (_ball.transform.position.x > transform.position.x)
         {
             _rbIA.velocity = Vector3.zero;
             _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
             if (_option == 1)
-                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(1f, 0.9f, 0), ForceMode.Impulse);
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(-1f, 0.9f, 0), ForceMode.Impulse);
             else
                 _ball.GetComponent<Rigidbody>().AddForce(new Vector3(75f, _ball.GetComponent<Rigidbody>().velocity.y, 0));
 
@@ -168,7 +170,7 @@ public class IA : MonoBehaviour
             _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
             if (_option == 1)
                 //_ball.GetComponent<Rigidbody>().AddForce(new Vector3(-35, 45, 0));
-                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(1.3f, 0.7f, 0), ForceMode.Impulse);
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(-1f, 0.7f, 0), ForceMode.Impulse);
             else
                 _ball.GetComponent<Rigidbody>().AddForce(new Vector3(-75f, _ball.GetComponent<Rigidbody>().velocity.y, 0));
         }
@@ -187,7 +189,6 @@ public class IA : MonoBehaviour
     public void doHeadShoot()
     {
         _anim.SetTrigger("_headAttack");
-        eventWhenKickBall?.Invoke();
     }
 
     private void OnDrawGizmos()
@@ -201,15 +202,16 @@ public class IA : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, _posDefault, Time.deltaTime * 0.5f);
     }
 
-    IEnumerator BackToDefaultPosition()
-    {
-        float time = 3f;
-        while(time >= 0f)
-        {
-           
-            transform.position = Vector3.Lerp(transform.position, _posDefault, Time.deltaTime * 0.05f);
-            time -= Time.deltaTime;
-        }     
-        yield return null;
-    }
+    //IEnumerator BackToDefaultPosition()
+    //{
+    //    float time = 3f;
+    //    while (time >= 0f)
+    //    {
+
+    //        transform.position = Vector3.Lerp(transform.position, _posDefault, Time.deltaTime * 0.05f);
+    //        time -= Time.deltaTime;
+    //    }
+    //    walkback = false;
+    //    yield return null;
+    //}
 }
