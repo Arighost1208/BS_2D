@@ -60,79 +60,90 @@ public class IA : MonoBehaviour
     public void Move()
     {
         float _currentSpeed = 0f;
-        if (Mathf.Abs(_ball.transform.position.x - transform.position.x) < _rangerDefense)
-        {
-            if (_ball.transform.position.x > transform.position.x)
-            {
-                _currentSpeed = Time.deltaTime * _speed;
-                _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-            }
-
-            else
-            {
-                _currentSpeed = -Time.deltaTime * _speed;
-                _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-            }
-        }
-        //    //Si la distancia entre la pelota y la IA es menor al rango de Defensa
-        //    if (Mathf.Abs(_ball.transform.position.x - transform.position.x)< _rangerDefense)
-        //     {
-        //    //evaluo si la pelota esta por detras de la IA
-        //        if (_ball.transform.position.x > transform.position.x)
-        //        {
-        //            if (Mathf.Abs(_player.transform.position.x - transform.position.x) <= 2.5f)
-        //            {
-        //            _currentSpeed = Time.deltaTime * _speed;
-        //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-        //            }
-
-        //            else
-        //            {
-        //            _currentSpeed = -Time.deltaTime * _speed;
-        //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-
-        //            }
-        //        }
-
-           
-        //    //Si la pelota  esta por delante de la IA
-        //        else
-        //        {
-        //            if (Mathf.Abs(_player.transform.position.x - transform.position.x) <= 2.5f)
-        //            {
-        //            _currentSpeed = Time.deltaTime * _speed;
-        //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-        //            }
-
-        //            else
-        //            {
-        //            _currentSpeed = -Time.deltaTime * _speed;
-        //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-
-        //            }
-        //        _currentSpeed = -Time.deltaTime * _speed;
-        //        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-        //        }
-        //    }
-        ////Si la distancia entre la pelota y la IA es mayor al rango de Defensa
-        //else
+        //float _distance = Vector3.Distance(transform.position, _player.transform.position);
+        //if (_distance <= 3f)
         //{
-        //    //Chequeo si la IA esta por delante de la zona Defensiva
-        //    if (transform.position.x > _defense.position.x)//cambiar signo
-        //    {
-        //        _currentSpeed = -Time.deltaTime * _speed;
-        //        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-        //    }
-
-        //    //Si la IA esta por detras de la zona Defensiva
-        //    else
-        //    {
-        //        _currentSpeed = 0;
-        //        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
-        //    }
+        //    StartCoroutine(BackToDefaultPosition());
+        //  //  backToDefaultPosition();
         //}
 
-        _anim.SetFloat("_speedX", _currentSpeed);
+        //else
+        //{
+            if (Mathf.Abs(_ball.transform.position.x - transform.position.x) < _rangerDefense)
+            {
+                if (_ball.transform.position.x > transform.position.x)
+                {
+                    _currentSpeed = Time.deltaTime * _speed;
+                    _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+                }
+
+                else
+                {
+                    _currentSpeed = -Time.deltaTime * _speed;
+                    _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+                }
+            }
+            //    //Si la distancia entre la pelota y la IA es menor al rango de Defensa
+            //    if (Mathf.Abs(_ball.transform.position.x - transform.position.x)< _rangerDefense)
+            //     {
+            //    //evaluo si la pelota esta por detras de la IA
+            //        if (_ball.transform.position.x > transform.position.x)
+            //        {
+            //            if (Mathf.Abs(_player.transform.position.x - transform.position.x) <= 2.5f)
+            //            {
+            //            _currentSpeed = Time.deltaTime * _speed;
+            //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+            //            }
+
+            //            else
+            //            {
+            //            _currentSpeed = -Time.deltaTime * _speed;
+            //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+
+            //            }
+            //        }
+
+
+            //    //Si la pelota  esta por delante de la IA
+            //        else
+            //        {
+            //            if (Mathf.Abs(_player.transform.position.x - transform.position.x) <= 2.5f)
+            //            {
+            //            _currentSpeed = Time.deltaTime * _speed;
+            //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+            //            }
+
+            //            else
+            //            {
+            //            _currentSpeed = -Time.deltaTime * _speed;
+            //            _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+
+            //            }
+            //        _currentSpeed = -Time.deltaTime * _speed;
+            //        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+            //        }
+            //    }
+            ////Si la distancia entre la pelota y la IA es mayor al rango de Defensa
+            //else
+            //{
+            //    //Chequeo si la IA esta por delante de la zona Defensiva
+            //    if (transform.position.x > _defense.position.x)//cambiar signo
+            //    {
+            //        _currentSpeed = -Time.deltaTime * _speed;
+            //        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+            //    }
+
+            //    //Si la IA esta por detras de la zona Defensiva
+            //    else
+            //    {
+            //        _currentSpeed = 0;
+            //        _rbIA.velocity = new Vector3(_currentSpeed, _rbIA.velocity.y, _rbIA.velocity.z);
+            //    }
+            //}
+
+            _anim.SetFloat("_speedX", _currentSpeed);
+       // }
+        
     }
 
     public void Shoot()
@@ -185,5 +196,17 @@ public class IA : MonoBehaviour
     public void backToDefaultPosition()
     {
         transform.position = Vector3.Lerp(transform.position, _posDefault, Time.deltaTime * 0.5f);
+    }
+
+    IEnumerator BackToDefaultPosition()
+    {
+        float time = 3f;
+        while(time >= 0f)
+        {
+           
+            transform.position = Vector3.Lerp(transform.position, _posDefault, Time.deltaTime * 0.05f);
+            time -= Time.deltaTime;
+        }     
+        yield return null;
     }
 }
