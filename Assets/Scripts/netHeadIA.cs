@@ -12,7 +12,7 @@ public class netHeadIA : MonoBehaviour
         _ia = GameObject.FindObjectOfType<IA>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         Ball _ball = collision.gameObject.GetComponent<Ball>();
         if (_ball != null)

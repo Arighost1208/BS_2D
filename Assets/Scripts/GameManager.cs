@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
         int _count = int.Parse(_goalCountIA.text) + 1;
         countGoalIA = _count;
         _goalCountIA.text = _count.ToString();
+        _ia.MustToReturnToDefaultPos = true;
     }
 
     public void Respwan()
@@ -99,8 +100,12 @@ public class GameManager : MonoBehaviour
             //_ball.GetComponent<Rigidbody>().AddForce(new Vector3(50, -30, 0));
             _ball.ObliqueMoveIA();
         else
-            //_ball.GetComponent<Rigidbody>().AddForce(new Vector3(-50, -30, 0));
+        {
+            _ia.MustToReturnToDefaultPos = false;
             _ball.ObliqueMovePlayer();
+        }
+            //_ball.GetComponent<Rigidbody>().AddForce(new Vector3(-50, -30, 0));
+            
 
         goalsColliders(true);
 

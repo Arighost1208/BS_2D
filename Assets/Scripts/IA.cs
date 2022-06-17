@@ -14,6 +14,8 @@ public class IA : MonoBehaviour
     private Rigidbody _rbIA;  
     private Model _player;
     private  Animator _anim;
+    private Vector3 _posDefault;
+    private bool _mustToReturnToDefaultPos;
 
     void Start()
     {
@@ -21,28 +23,40 @@ public class IA : MonoBehaviour
         _ball = GameObject.FindObjectOfType<Ball>();
         _rbIA = GetComponent<Rigidbody>();
         _player = GameObject.FindObjectOfType<Model>();
+        _posDefault = transform.position;
+        MustToReturnToDefaultPos = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        Move();
-
-        _grounded = Physics.CheckSphere(_checkGrounded.position, 0.25f, _groundLayer);
-        if (_canShootAI)
+        if (MustToReturnToDefaultPos)
         {
-            Shoot();
-            _canShootAI = false;
+            backToDefaultPosition();
         }
+        else
+        {   
+            Move();
 
-        if (_canHead && _grounded)
-        {
-            Jump();
+            _grounded = Physics.CheckSphere(_checkGrounded.position, 0.25f, _groundLayer);
+            if (_canShootAI)
+            {
+                Shoot();
+                _canShootAI = false;
+            }
+
+            if (_canHead && _grounded)
+            {
+                Jump();
+            }
         }
-
     }
 
+    public bool MustToReturnToDefaultPos
+    {
+        get => _mustToReturnToDefaultPos;
+        set { _mustToReturnToDefaultPos = value;  }
+    }
     public void Move()
     {
         float _currentSpeed = 0f;
@@ -141,7 +155,7 @@ public class IA : MonoBehaviour
             _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
             if (_option == 1)
                 //_ball.GetComponent<Rigidbody>().AddForce(new Vector3(-35, 45, 0));
-                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(1f, 0.9f, 0), ForceMode.Impulse);
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(1f, 0.6f, 0), ForceMode.Impulse);
             else
                 _ball.GetComponent<Rigidbody>().AddForce(new Vector3(-75f, _ball.GetComponent<Rigidbody>().velocity.y, 0));
         }
@@ -166,5 +180,10 @@ public class IA : MonoBehaviour
     {
        
         Gizmos.DrawWireSphere(_checkGrounded.position, 0.25f);
+    }
+
+    public void backToDefaultPosition()
+    {
+        transform.position = Vector3.Lerp(transform.position, _posDefault, Time.deltaTime * 0.5f);
     }
 }

@@ -1592,7 +1592,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.454592
+  orthographic size: 5.4649196
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1616,7 +1616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: -0.01, z: -12.6}
+  m_LocalPosition: {x: 0.2, y: 0.61, z: -12.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2785,8 +2785,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.43941247
-  m_Center: {x: 0.019188643, y: 1.7303375, z: 0}
+  m_Radius: 0.5964339
+  m_Center: {x: 0.019188643, y: 1.6195794, z: 0}
 --- !u!1 &1107840523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,8 +2860,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.39384872, y: 3.9006171, z: 4.702444}
-  m_Center: {x: -0.21793331, y: 0.079424866, z: -0.15155959}
+  m_Size: {x: 0.48849046, y: 3.9006171, z: 4.702444}
+  m_Center: {x: -0.17061253, y: 0.079424866, z: -0.15155959}
 --- !u!4 &1115902971
 Transform:
   m_ObjectHideFlags: 0
@@ -4087,8 +4087,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.34825453, y: 4.023649, z: 4.702444}
-  m_Center: {x: -0.1856627, y: 0.017909523, z: -0.15155959}
+  m_Size: {x: 0.48094147, y: 4.023649, z: 4.702444}
+  m_Center: {x: -0.25200608, y: 0.017909523, z: -0.15155959}
 --- !u!4 &1709429044
 Transform:
   m_ObjectHideFlags: 0
@@ -4368,7 +4368,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 690350789
+  m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1891342303
@@ -5386,8 +5386,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.76941323
-  m_Center: {x: -0.02604556, y: -0.021122456, z: 0}
+  m_Radius: 0.62916994
+  m_Center: {x: -0.02604556, y: -0.08755374, z: 0}
 --- !u!1001 &2112520532
 PrefabInstance:
   m_ObjectHideFlags: 0

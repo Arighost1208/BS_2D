@@ -58,7 +58,7 @@ public class Model : MonoBehaviour
 
             if (obliqueShoot)
                 //_ball.GetComponent<Rigidbody>().AddForce(new Vector3(40, 35, 0),ForceMode.Impulse);
-                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(1f ,0.7f, 0), ForceMode.Impulse);
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(1f ,0.6f, 0), ForceMode.Impulse);
             else
                 _ball.GetComponent<Rigidbody>().AddForce(new Vector3(75f, _ball.GetComponent<Rigidbody>().velocity.y, 0));
 
