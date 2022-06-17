@@ -6,6 +6,8 @@ public class netHeadPlayer : MonoBehaviour
 {
     private Model _model;
     public LayerMask _groundLayer;
+    public float _headForceShoot;
+
     private void Start()
     {
         _model = GameObject.FindObjectOfType<Model>();
@@ -26,16 +28,15 @@ public class netHeadPlayer : MonoBehaviour
         Ball _ball = collision.gameObject.GetComponent<Ball>();
         if (_ball != null)
         {
-
             bool _grounded = Physics.CheckSphere(_model.transform.position, 0.25f, _groundLayer);
-           
             //If player isnt stay in the ground , he can shoot with head
 
             if (!_grounded)
             {
                 GameObject.FindObjectOfType<Model>().doHeadShoot();
                 _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(75, 20, 0));
+                //_ball.GetComponent<Rigidbody>().AddForce(new Vector3(75, 20, 0));
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(1.5f, 0.2f, 0) *_headForceShoot , ForceMode.Impulse);
             }
             
         }

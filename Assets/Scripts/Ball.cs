@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour
     private Rigidbody _rb;
     private float _speedX = -12;
     public Transform _posPlayerDefault;
+    public Transform _posIADefault;
 
     void Start()
     {
@@ -52,6 +53,7 @@ public class Ball : MonoBehaviour
             Vector3 vec = GetComponent<Rigidbody>().velocity;
             GetComponent<Rigidbody>().velocity = new Vector3(vec.x / 2, vec.y / 2, 0);
             _gm.goalPlayer();
+            collision.gameObject.GetComponent<GoalAnimation>().PlayGoalAnimation();
             Debug.Log("GOOOOOL a la IA");
             return;
         }
@@ -61,6 +63,7 @@ public class Ball : MonoBehaviour
             Vector3 vec = GetComponent<Rigidbody>().velocity;
             GetComponent<Rigidbody>().velocity = new Vector3(vec.x/2, vec.y/2,0);
             _gm.goalIA();
+            collision.gameObject.GetComponent<GoalAnimation>().PlayGoalAnimation();
             Debug.Log("GOOOOOL al Player");
             return;
         }
@@ -94,13 +97,20 @@ public class Ball : MonoBehaviour
 
     private float Gravity { get { return Physics.gravity.y; } }
 
-    public void ObliqueMove()
+    public void ObliqueMovePlayer()
     {
         float _totalTime = Mathf.Sqrt(Mathf.Abs(((_posPlayerDefault.position.y - transform.position.y) * (-2f)) / Gravity));
 
         float VIy = Gravity * (_totalTime);
-        _rb.AddForce(new Vector3(_speedX, VIy, 0), ForceMode.VelocityChange);
+        _rb.AddForce(new Vector3(-30f, VIy, _rb.velocity.z));
     }
 
-    
+    public void ObliqueMoveIA()
+    {
+        float _totalTime = Mathf.Sqrt(Mathf.Abs(((_posIADefault.position.y - transform.position.y) * (-2f)) / Gravity));
+
+        float VIy = Gravity * (_totalTime);
+        _rb.AddForce(new Vector3(30f, VIy, _rb.velocity.z));
+    }
+
 }

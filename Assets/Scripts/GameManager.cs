@@ -93,10 +93,11 @@ public class GameManager : MonoBehaviour
         _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
         if (!_isGoalIA)
-            _ball.GetComponent<Rigidbody>().AddForce(new Vector3(50, -30, 0));
+            //_ball.GetComponent<Rigidbody>().AddForce(new Vector3(50, -30, 0));
+            _ball.ObliqueMoveIA();
         else
             //_ball.GetComponent<Rigidbody>().AddForce(new Vector3(-50, -30, 0));
-            _ball.ObliqueMove();
+            _ball.ObliqueMovePlayer();
 
         goalsColliders(true);
 

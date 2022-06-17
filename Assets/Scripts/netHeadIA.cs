@@ -22,7 +22,8 @@ public class netHeadIA : MonoBehaviour
             {
                 GameObject.FindObjectOfType<IA>().doHeadShoot();
                 _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(-75, 20, 0));
+                //_ball.GetComponent<Rigidbody>().AddForce(new Vector3(-75, 20, 0));
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(-1.5f, 0.2f, 0) , ForceMode.Impulse);
             }
            
         }
