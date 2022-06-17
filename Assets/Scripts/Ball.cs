@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Ball : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Ball : MonoBehaviour
     private float _speedX = -12;
     public Transform _posPlayerDefault;
     public Transform _posIADefault;
+    //[SerializeField] AudioClip audioGool;
+    public UnityEvent eventGool;
 
     void Start()
     {
@@ -29,7 +32,7 @@ public class Ball : MonoBehaviour
 
         if (_player != null)
         {
-            _player._canShoot = true;
+            _player._canShoot = true;       
             return;
         }
 
@@ -52,6 +55,8 @@ public class Ball : MonoBehaviour
         {
             Vector3 vec = GetComponent<Rigidbody>().velocity;
             GetComponent<Rigidbody>().velocity = new Vector3(vec.x / 2, vec.y / 2, 0);
+            // SoundManager.PlayClip(audioGool);
+            eventGool?.Invoke();
             _gm.goalPlayer();
             collision.gameObject.GetComponent<GoalAnimation>().PlayGoalAnimation();
             Debug.Log("GOOOOOL a la IA");
@@ -62,6 +67,8 @@ public class Ball : MonoBehaviour
         {
             Vector3 vec = GetComponent<Rigidbody>().velocity;
             GetComponent<Rigidbody>().velocity = new Vector3(vec.x/2, vec.y/2,0);
+            eventGool?.Invoke(); 
+            //SoundManager.PlayClip(audioGool);
             _gm.goalIA();
             collision.gameObject.GetComponent<GoalAnimation>().PlayGoalAnimation();
             Debug.Log("GOOOOOL al Player");

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class IA : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class IA : MonoBehaviour
     private  Animator _anim;
     private Vector3 _posDefault;
     private bool _mustToReturnToDefaultPos;
+    public UnityEvent eventWhenKickBall;
 
     void Start()
     {
@@ -149,7 +151,7 @@ public class IA : MonoBehaviour
     public void Shoot()
     {
         int _option = Random.Range(1, 3);
-
+        eventWhenKickBall?.Invoke();
         if (_ball.transform.position.x > transform.position.x)
         {
             _rbIA.velocity = Vector3.zero;
@@ -166,7 +168,7 @@ public class IA : MonoBehaviour
             _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
             if (_option == 1)
                 //_ball.GetComponent<Rigidbody>().AddForce(new Vector3(-35, 45, 0));
-                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(1f, 0.6f, 0), ForceMode.Impulse);
+                _ball.GetComponent<Rigidbody>().AddForce(new Vector3(1.3f, 0.7f, 0), ForceMode.Impulse);
             else
                 _ball.GetComponent<Rigidbody>().AddForce(new Vector3(-75f, _ball.GetComponent<Rigidbody>().velocity.y, 0));
         }
@@ -185,6 +187,7 @@ public class IA : MonoBehaviour
     public void doHeadShoot()
     {
         _anim.SetTrigger("_headAttack");
+        eventWhenKickBall?.Invoke();
     }
 
     private void OnDrawGizmos()

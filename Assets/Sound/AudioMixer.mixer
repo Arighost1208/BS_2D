@@ -14,6 +14,20 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-4863128772683836804
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 7fad0782bd6489e4ebf8d49d25980656
+  m_EffectName: Attenuation
+  m_MixLevel: 5504a697a3a597c4789f98ea42b278af
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-3389980739632228831
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -69,6 +83,7 @@ AudioMixerController:
     - 1a58f10bdf1d0604bb3cca0adcc7f741
     - 8c4768b773bdc9d499cd21c507e16177
     - e9dbce0da9fc3e44c98edcfbd0849052
+    - 51caf7db67397954287dda6c491cec3b
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -85,6 +100,7 @@ AudioMixerGroupController:
   - {fileID: 8781596516462587173}
   - {fileID: 4377007927907856417}
   - {fileID: -3389980739632228831}
+  - {fileID: 8340428428784624559}
   m_Volume: 3e9ddc73230a86449baf7c165409993e
   m_Pitch: 0b23f25484c7501408aff39546c3a2b7
   m_Send: 00000000000000000000000000000000
@@ -118,9 +134,11 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: a8d6baf4ad6e3aa49a253b5ba2a2cd4a
   m_FloatValues:
-    3e9ddc73230a86449baf7c165409993e: -5.824182
+    3e9ddc73230a86449baf7c165409993e: -0.30163807
     3c68ed756164abc41a450d187e4c55d0: -0.8840523
-    3733961b06e7fc54a9e59c0474f3dc24: 20
+    26249a58c865e774ba04db7c4ecda59d: 3.5924087
+    3733961b06e7fc54a9e59c0474f3dc24: 7.231059
+    272973abf96fec34bbad5c72a4d049ab: 1.6660378
     c7c9cebbaa9104a4d9ee05b06c212272: -14.221897
   m_TransitionOverrides: {}
 --- !u!243 &4377007927907856417
@@ -156,6 +174,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &8340428428784624559
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: "Trabesa\xF1o"
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 51caf7db67397954287dda6c491cec3b
+  m_Children: []
+  m_Volume: 26249a58c865e774ba04db7c4ecda59d
+  m_Pitch: 497f7c3fa9ae9934da19459b9da91006
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -4863128772683836804}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &8781596516462587173
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
