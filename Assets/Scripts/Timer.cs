@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
     private GameManager _gameManager;
     void Start()
     {
-        _maxTime = 90f;
+        _maxTime = 10f;
         _currentTime = _maxTime;
         _gameManager = GameObject.FindObjectOfType<GameManager>();
     }

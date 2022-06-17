@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI _goalCountIA;
     public TextMeshProUGUI _goalTextPlayer;
     public TextMeshProUGUI _goalTextIA;
+    public Text _WinText;
+    public Text _LooseText;
+    public Text _DeuceText;
+    public GameObject _button;
     public Transform _posDefaultBall;
     public Transform _posDefaultPlayer;
     public Transform _posDefaultIA;
@@ -21,6 +25,16 @@ public class GameManager : MonoBehaviour
     private RigidbodyConstraints _rbc;
     private bool _isGoalIA;
     private int countGoalIA, countGoalPlayer;
+
+    private void Awake()
+    {
+        Time.timeScale = 1f;
+        _LooseText.gameObject.SetActive(false);
+        _WinText.gameObject.SetActive(false);
+        _DeuceText.gameObject.SetActive(false);
+        _button.SetActive(false);
+    }
+
     void Start()
     {
         _goalCountPlayer.text = "0";
@@ -38,6 +52,7 @@ public class GameManager : MonoBehaviour
         _colliderGoalLeft.GetComponent<Collider>().enabled = _enabled;
         _colliderGoalRight.GetComponent<Collider>().enabled = _enabled;
     }
+
     public void goalPlayer()
     {
         addGoalCountPlayer();  
@@ -116,15 +131,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         if (countGoalIA > countGoalPlayer)
         {
-
+            _LooseText.gameObject.SetActive(true);
         }
         else if (countGoalPlayer > countGoalIA)
         {
-
+            _WinText.gameObject.SetActive(true);
         }
         else if (countGoalIA == countGoalPlayer)
         {
-
+            _DeuceText.gameObject.SetActive(true);
         }
+        _button.SetActive(true);
     }
 }
