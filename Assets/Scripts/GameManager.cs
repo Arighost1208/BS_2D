@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     private GameObject _colliderGoalRight;
     private RigidbodyConstraints _rbc;
     private bool _isGoalIA;
+    private int countGoalIA, countGoalPlayer;
     void Start()
     {
         _goalCountPlayer.text = "0";
@@ -74,12 +75,14 @@ public class GameManager : MonoBehaviour
     public void addGoalCountPlayer()
     {
         int _count = int.Parse(_goalCountPlayer.text) + 1;
+        countGoalPlayer = _count;
         _goalCountPlayer.text = _count.ToString(); 
     }
 
     public void addGoalCountIA()
     {
         int _count = int.Parse(_goalCountIA.text) + 1;
+        countGoalIA = _count;
         _goalCountIA.text = _count.ToString();
     }
 
@@ -101,5 +104,22 @@ public class GameManager : MonoBehaviour
 
         goalsColliders(true);
 
+    }
+
+    public void CheckResultToFinishGame()
+    {
+        Time.timeScale = 0f;
+        if (countGoalIA > countGoalPlayer)
+        {
+
+        }
+        else if (countGoalPlayer > countGoalIA)
+        {
+
+        }
+        else if (countGoalIA == countGoalPlayer)
+        {
+
+        }
     }
 }

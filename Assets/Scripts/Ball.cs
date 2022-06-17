@@ -21,7 +21,7 @@ public class Ball : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Velocidad horizontal :" + _rb.velocity.x);
+        //Debug.Log("Velocidad horizontal :" + _rb.velocity.x);
     }
     private void OnTriggerEnter(Collider collision)
     {
