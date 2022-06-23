@@ -14,7 +14,7 @@ public class BowBounce : MonoBehaviour
    // [SerializeField] AudioClip audioPost;
     public void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == "soccer ball")
+        if (col.gameObject.name == "Soccer Ball")
         {
             audioSource.Play();
         }
