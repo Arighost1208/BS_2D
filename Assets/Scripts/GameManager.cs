@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     public void goalPlayer()
     {
         addGoalCountPlayer();  
-        _goalTextPlayer.gameObject.SetActive(true);
+        //_goalTextPlayer.gameObject.SetActive(true);
         goalsColliders(false);
         _isGoalIA = false;
         Invoke("Respwan", 1.5f);
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
     {
         addGoalCountIA();
         
-        _goalTextIA.gameObject.SetActive(true);
+        //_goalTextIA.gameObject.SetActive(true);
         goalsColliders(false);
         _isGoalIA = true;
         Invoke("Respwan", 1.5f);
