@@ -7,6 +7,7 @@ public class ControlResolution : MonoBehaviour
     public float aspect;
     public float rounded;
     UnityEngine.UI.CanvasScaler cv;
+//    public Animator animY;
 
     void Start()
     {
@@ -46,6 +47,13 @@ public class ControlResolution : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y)) UpdateResolution();
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            UpdateResolution();
+            //animY.Play("YtoRescale");
+       
+        }
+
+      
     }
 }
