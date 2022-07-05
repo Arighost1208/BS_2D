@@ -68,7 +68,6 @@ public class Ball : MonoBehaviour
             Vector3 vec = GetComponent<Rigidbody>().velocity;
             GetComponent<Rigidbody>().velocity = new Vector3(vec.x/2, vec.y/2,0);
             eventGool?.Invoke(); 
-            //SoundManager.PlayClip(audioGool);
             _gm.goalIA();
             collision.gameObject.GetComponent<GoalAnimation>().PlayGoalAnimation();
             Debug.Log("GOOOOOL al Player");
@@ -99,7 +98,13 @@ public class Ball : MonoBehaviour
             ia._canHead = false;
             return;
         }
-        
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("GoalsLeft"))
+        {
+            Vector3 vec = GetComponent<Rigidbody>().velocity;
+            GetComponent<Rigidbody>().velocity = new Vector3(0, 0,0);
+            return;
+        }
     }
 
     private float Gravity { get { return Physics.gravity.y; } }

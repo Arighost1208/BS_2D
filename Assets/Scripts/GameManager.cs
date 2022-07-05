@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     private RigidbodyConstraints _rbc;
     private bool _isGoalIA;
     private int countGoalIA, countGoalPlayer;
-
+    private Timer _timer;
     private void Awake()
     {
         Time.timeScale = 1f;
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         _ia = GameObject.FindObjectOfType<IA>();
         _colliderGoalLeft = GameObject.FindGameObjectWithTag("GoalsLeft");
         _colliderGoalRight = GameObject.FindGameObjectWithTag("GoalsRight");
-      
+        _timer = GameObject.FindObjectOfType<Timer>();
     }
 
     public void goalsColliders(bool _enabled)
@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
 
     public void goalPlayer()
     {
+        _timer.StopTime = true;
         addGoalCountPlayer();  
         //_goalTextPlayer.gameObject.SetActive(true);
         goalsColliders(false);
@@ -62,10 +63,12 @@ public class GameManager : MonoBehaviour
         Invoke("Respwan", 1.5f);
         _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
         Invoke("textGoalPlayerDesactive", 1.5f);
+    
     }
 
     public void goalIA()
     {
+        _timer.StopTime = true;
         addGoalCountIA();
         
         //_goalTextIA.gameObject.SetActive(true);
@@ -74,7 +77,7 @@ public class GameManager : MonoBehaviour
         Invoke("Respwan", 1.5f);
        _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
         Invoke("textGoalIADesactive", 1.5f);
-       
+      
     }
 
     public void textGoalIADesactive()
@@ -104,6 +107,7 @@ public class GameManager : MonoBehaviour
 
     public void Respwan()
     {
+        _timer.StopTime = false;
         _player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         _player.transform.position = _posDefaultPlayer.position;
         _ia.GetComponent<Rigidbody>().velocity = Vector3.zero;

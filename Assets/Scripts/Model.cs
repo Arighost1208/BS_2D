@@ -36,7 +36,7 @@ public class Model : MonoBehaviour
 
     public bool doJump()
     {
-        _grounded = Physics.CheckSphere(transform.position, 0.25f, _groundLayer);
+        _grounded = Physics.CheckSphere(transform.position, 0.2f, _groundLayer);
   
          if (_grounded)
         {       
@@ -82,6 +82,6 @@ public class Model : MonoBehaviour
    
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, 0.25f);
+        Gizmos.DrawWireSphere(transform.position, 0.2f);
     }
 }
