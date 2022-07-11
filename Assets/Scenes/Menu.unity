@@ -367,7 +367,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -528,7 +528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0000038146973}
+  m_AnchoredPosition: {x: 0, y: 0.000015258789}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &164141935
@@ -643,7 +643,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.81333345}
+  m_AnchorMax: {x: 1, y: 0.8133334}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1278,7 +1278,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1696,7 +1696,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1970,10 +1970,10 @@ RectTransform:
   m_Father: {fileID: 1997121424}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.04347917, y: 0.36838692}
-  m_AnchorMax: {x: 0.24100001, y: 0.42658544}
-  m_AnchoredPosition: {x: 1.5, y: -0.12390137}
-  m_SizeDelta: {x: -179.56, y: -26.954}
+  m_AnchorMin: {x: 0.044520836, y: 0.43615174}
+  m_AnchorMax: {x: 0.24100001, y: 0.48900002}
+  m_AnchoredPosition: {x: 0.5, y: -0.36475372}
+  m_SizeDelta: {x: -177.56, y: -21.954002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &503433281
 MonoBehaviour:
@@ -2039,7 +2039,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2391,7 +2391,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -3096,7 +3096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &646520974
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9596,10 +9596,10 @@ RectTransform:
   m_Father: {fileID: 1997121424}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.080791675, y: 0.23400001}
-  m_AnchorMax: {x: 0.20579165, y: 0.268}
-  m_AnchoredPosition: {x: -0.4058838, y: -1}
-  m_SizeDelta: {x: -80, y: -11.952759}
+  m_AnchorMin: {x: 0.080791675, y: 0.29900002}
+  m_AnchorMax: {x: 0.20579165, y: 0.33073664}
+  m_AnchoredPosition: {x: -0.4058838, y: 0.25915527}
+  m_SizeDelta: {x: -80, y: -9.952759}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &961473843
 MonoBehaviour:
@@ -9876,7 +9876,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -10117,7 +10117,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -675, y: 3}
+  m_AnchoredPosition: {x: -675, y: 59.259148}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1143811382
@@ -10195,7 +10195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1165079921
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10780,7 +10780,7 @@ RectTransform:
   m_GameObject: {fileID: 1277650366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.07, y: 1.07, z: 1.07}
   m_Children: []
   m_Father: {fileID: 617980572}
   m_RootOrder: 0
@@ -11016,7 +11016,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -16419,10 +16419,10 @@ RectTransform:
   m_Father: {fileID: 1997121424}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.04347917, y: 0.268}
-  m_AnchorMax: {x: 0.24100001, y: 0.32728153}
-  m_AnchoredPosition: {x: 1.5, y: -0.25915527}
-  m_SizeDelta: {x: -179.56, y: -27.596}
+  m_AnchorMin: {x: 0.044520836, y: 0.33539316}
+  m_AnchorMax: {x: 0.24100001, y: 0.38830343}
+  m_AnchoredPosition: {x: 0.5, y: 0}
+  m_SizeDelta: {x: -177.56, y: -21.596}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1437974400
 MonoBehaviour:
@@ -17525,7 +17525,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 165295950}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.81333345
+  m_Size: 0.8133334
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -23804,10 +23804,10 @@ RectTransform:
   m_Father: {fileID: 1997121424}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.080791675, y: 0.33447498}
-  m_AnchorMax: {x: 0.20579165, y: 0.36838692}
-  m_AnchoredPosition: {x: -0.4058838, y: -0.30004883}
-  m_SizeDelta: {x: -80, y: -11.952759}
+  m_AnchorMin: {x: 0.080791675, y: 0.4013034}
+  m_AnchorMax: {x: 0.20579165, y: 0.43039322}
+  m_AnchoredPosition: {x: -0.4058838, y: -0.040901184}
+  m_SizeDelta: {x: -80, y: -7.952759}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2049811542
 MonoBehaviour:
@@ -24708,7 +24708,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 4
   m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0

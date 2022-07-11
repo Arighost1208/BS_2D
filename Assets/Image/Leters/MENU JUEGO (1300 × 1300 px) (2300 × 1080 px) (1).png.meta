@@ -1,0 +1,295 @@
+fileFormatVersion: 2
+guid: 7c6767d308ebf3040b503d8dcbd6e021
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5648722487271057721
+    second: "MENU JUEGO (1300\_\xD7\_1300\_px) (2300\_\xD7\_1080\_px) (1)_0"
+  - first:
+      213: 6189504619857298822
+    second: "MENU JUEGO (1300\_\xD7\_1300\_px) (2300\_\xD7\_1080\_px) (1)_1"
+  - first:
+      213: 8269363794509832093
+    second: "MENU JUEGO (1300\_\xD7\_1300\_px) (2300\_\xD7\_1080\_px) (1)_2"
+  - first:
+      213: 672085171437403405
+    second: "MENU JUEGO (1300\_\xD7\_1300\_px) (2300\_\xD7\_1080\_px) (1)_3"
+  - first:
+      213: 4347673007087929394
+    second: "MENU JUEGO (1300\_\xD7\_1300\_px) (2300\_\xD7\_1080\_px) (1)_4"
+  - first:
+      213: 1631246864472139705
+    second: "MENU JUEGO (1300\_\xD7\_1300\_px) (2300\_\xD7\_1080\_px) (1)_5"
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "MENU JUEGO (1300\_\xD7\_1300\_px) (2300\_\xD7\_1080\_px) (1)_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2649
+        width: 1727
+        height: 591
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ee3ea6d980aec40a6c3677ca768c9c
+      internalID: -5648722487271057721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "MENU JUEGO (1300\_\xD7\_1300\_px) (2300\_\xD7\_1080\_px) (1)_1"
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 1884
+        width: 1027
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fffba7a65da628545be72ca807b9e829
+      internalID: 6189504619857298822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "MENU JUEGO (1300\_\xD7\_1300\_px) (2300\_\xD7\_1080\_px) (1)_2"
+      rect:
+        serializedVersion: 2
+        x: 2741
+        y: 1876
+        width: 1434
+        height: 588
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415f11cd8589ac44498eb4e4236581d8
+      internalID: 8269363794509832093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "MENU JUEGO (1300\_\xD7\_1300\_px) (2300\_\xD7\_1080\_px) (1)_3"
+      rect:
+        serializedVersion: 2
+        x: 4231
+        y: 1904
+        width: 1160
+        height: 556
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fc1476ae3d410641bc0ca1aba1e3e77
+      internalID: 672085171437403405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "MENU JUEGO (1300\_\xD7\_1300\_px) (2300\_\xD7\_1080\_px) (1)_4"
+      rect:
+        serializedVersion: 2
+        x: 5765
+        y: 2842
+        width: 576
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 452e3ddc580eb844abe373c98046d7d7
+      internalID: 4347673007087929394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "MENU JUEGO (1300\_\xD7\_1300\_px) (2300\_\xD7\_1080\_px) (1)_5"
+      rect:
+        serializedVersion: 2
+        x: 6369
+        y: 2846
+        width: 290
+        height: 258
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1735c0b839ae440b536b3ddfcf2050
+      internalID: 1631246864472139705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: -3137, y: 1174}
+      - {x: -3137, y: 1593}
+      - {x: -2086, y: 1593}
+      - {x: -2086, y: 1174}
+    - - {x: -1981, y: 288}
+      - {x: -1981, y: 916}
+      - {x: -938, y: 916}
+      - {x: -938, y: 288}
+    - - {x: -773, y: 276}
+      - {x: -773, y: 912}
+      - {x: 765, y: 912}
+      - {x: 765, y: 276}
+    - - {x: 838, y: 252}
+      - {x: 838, y: 920}
+      - {x: 1925, y: 920}
+      - {x: 1925, y: 252}
+    - - {x: 2380, y: 1198}
+      - {x: 2380, y: 1512}
+      - {x: 2911, y: 1512}
+      - {x: 2911, y: 1198}
+    - - {x: 2923, y: 1194}
+      - {x: 2923, y: 1516}
+      - {x: 3258, y: 1516}
+      - {x: 3258, y: 1194}
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

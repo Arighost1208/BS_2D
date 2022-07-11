@@ -10,9 +10,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI _goalCountIA;
     public TextMeshProUGUI _goalTextPlayer;
     public TextMeshProUGUI _goalTextIA;
-    public Text _WinText;
-    public Text _LooseText;
-    public Text _DeuceText;
+    public TextMeshProUGUI _WinText;
+    public TextMeshProUGUI _LooseText;
+    public TextMeshProUGUI _DeuceText;
     public GameObject _button;
     public Transform _posDefaultBall;
     public Transform _posDefaultPlayer;
